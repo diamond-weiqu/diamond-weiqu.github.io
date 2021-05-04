@@ -1,0 +1,532 @@
+﻿﻿﻿<!doctype html>
+<!--[if IE 9 ]><html class="ie9" lang="en"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+    <head>
+        <title>IEcraft服务器 - 新手教程</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <!--meta info-->
+        <meta name="author" content="">
+        <meta name="keywords" content="IEcraft服务器,earthcity,我的世界服务器,minecraft服务器,我的世界联机,我的世界多人,minecraft联机,我的世界ip,我的世界ip,我的世界皮肤站,minecraft皮肤站,mc服务器,我的世界1.7.2,我的世界1.7.10,我的世界1.8,我的世界客户端,minecraft客户端,我的世界饥饿游戏,mc饥饿游戏,IEcraft服务器新周目,IEcraft服务器充值,IEcraft服务器qq群,IEcraft服务器官网,IEcraft服务器主页,我的世界教程,mc教程,minecraft教程">
+        <meta name="description" content="IEcraft服务器是Minecraft我的世界大型联机服务器,游戏版本为1.7-1.8,官方承诺永久免费不收费,并有丰富的玩法和精彩的活动等着你!">
+        <link rel="icon" type="image/ico" href="static/images/fav.ico">
+        <!--stylesheet include-->
+        <link rel="stylesheet" type="text/css" media="all" href="css/flexslider_2.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min_2.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/style_2.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/hover_2.css">
+		<link rel="stylesheet" href="css/21ce460a60ed4d5b8db0db57362b626e.css">
+		<script src="js/jquery-2.1.0.min_2.js"></script>
+		<script src="js/jquery-ui.min_2.js"></script>
+        <!--font include-->
+        <link href="css/font-awesome.min_2.css" rel="stylesheet">
+ 
+        <script type="text/javascript">
+            var system = {
+                win: false,
+                mac: false,
+                xll: false
+            };
+            var p = navigator.platform;
+            //alert(p);
+            system.win = p.indexOf("Win") == 0;
+            system.mac = p.indexOf("Mac") == 0;
+            system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+
+            if (system.win || system.mac || system.xll) {//转向后台登陆页面    
+            } else {
+                
+            }
+        </script>   
+ 
+ 
+    </head>
+    <body>
+
+ 
+        <!--boxed layout-->
+        <div class="wide_layout relative w_xs_auto">
+            <!--[if (lt IE 9) | IE 9]>
+                    <div style="background:#fff;padding:8px 0 10px;">
+                    <div class="container" style="width:1170px;"><div class="row wrapper"><div class="clearfix" style="padding:9px 0 0;float:left;width:83%;"><i class="fa fa-exclamation-triangle scheme_color f_left m_right_10" style="font-size:25px;color:#e74c3c;"></i><b style="color:#e74c3c;">Attention! This page may not display correctly.</b> <b>You are using an outdated version of Internet Explorer. For a faster, safer browsing experience.</b></div><div class="t_align_r" style="float:left;width:16%;"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode" class="button_type_4 r_corners bg_scheme_color color_light d_inline_b t_align_c" target="_blank" style="margin-bottom:2px;">Update Now!</a></div></div></div></div>
+            <![endif]-->
+            <!--markup header type 2-->
+
+            <header role="banner">
+                <section class="h_top_part">
+                    <div class="container">
+                        <div class="row clearfix">
+                            <div class="col-lg-4 col-md-4 col-sm-3 t_xs_align_c">
+                                <a class="f_size_small" target="_top" href="index.html">回到首页</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="h_bot_part container">
+                    <div class="clearfix row">
+                        <div class="col-lg-6 col-md-6 col-sm-4 t_xs_align_c">
+                            <a href="index.html" class="logo m_xs_bottom_15 d_xs_inline_b">
+                                <img src="picture/logo_2.png" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-8">
+                            <div class="row clearfix">
+                                <div class="col-lg-6 col-md-6 col-sm-6"></div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 t_align_r t_xs_align_c m_xs_bottom_15">
+                                    <dl class="l_height_medium">
+                                        <dt class="f_size_small"></dt>
+                                        <dd class="f_size_ex_large color_dark"><b></b></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="container">
+                    <section class="menu_wrap type_2 relative clearfix t_xs_align_c m_bottom_20">
+                        <!--button for responsive menu-->
+                        <button id="menu_button" class="r_corners centered_db d_none tr_all_hover d_xs_block m_bottom_15">
+                            <span class="centered_db r_corners"></span>
+                            <span class="centered_db r_corners"></span>
+                            <span class="centered_db r_corners"></span>
+                        </button>
+                        <!--main menu-->
+                        <nav role="navigation" class="f_left f_xs_none d_xs_none t_xs_align_l">	
+                            <ul class="horizontal_list main_menu clearfix">
+                                <li class=" relative f_xs_none m_xs_bottom_5"><a href="index.html" class="tr_delay_hover color_light tt_uppercase"><b>主页</b></a></li>
+                                <li class=" f_xs_none m_xs_bottom_5"><a href="about.html" class="tr_delay_hover color_light tt_uppercase"><b>游戏下载</b></a></li>
+                                <li class="current relative f_xs_none m_xs_bottom_5"><a href="guide.html" class="tr_delay_hover color_light tt_uppercase"><b>游戏教程</b></a></li>
+                                <li class=" f_xs_none m_xs_bottom_5"><a href="vip.html" class="tr_delay_hover color_light tt_uppercase"><b>游戏充值</b></a></li>
+                                 
+ 
+				
+                            </ul>
+                        </nav>
+
+                        <ul class="f_right horizontal_list clearfix t_align_l t_xs_align_c site_settings d_xs_inline_b f_xs_none">
+                            <!--shopping cart-->
+                       
+                                <li class="m_left_5 relative container3d" id="shopping_button">
+                                    <a role="button" href="#" class="button_type_1 color_light bg_scheme_color d_block r_corners tr_delay_hover box_s_none">
+                                        <i class="fa fa-user f_size_ex_large"></i>&nbsp;
+                                 IEcraft.com
+                                
+                                    </a>
+
+                          
+                                </li>
+                 
+                
+                     
+
+                        </ul>
+                    </section>
+                </div>
+            </header><section class="container">
+    <div class="row clearfix m_xs_bottom_30">
+        <div class="col-lg-4 col-md-4 col-sm-4 m_bottom_50 m_xs_bottom_0">
+            <a class="d_block animate_ftb h_md_auto m_xs_bottom_15 banner_type_2 r_corners red t_align_c tt_uppercase vc_child n_sm_vc_child">
+                <span class="d_inline_middle">
+                    <img class="d_inline_middle m_md_bottom_5" src="picture/banner_img_3.png" alt="">
+                    <span class="d_inline_middle m_left_10 t_align_l d_md_block t_md_align_c">
+                        <b>简单易懂</b>
+                    </span>
+                </span>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <a class="d_block animate_ftb h_md_auto m_xs_bottom_15 banner_type_2 r_corners green t_align_c tt_uppercase vc_child n_sm_vc_child">
+                <span class="d_inline_middle">
+                    <img class="d_inline_middle m_md_bottom_5" src="picture/banner_img_4.png" alt="">
+                    <span class="d_inline_middle m_left_10 t_align_l d_md_block t_md_align_c">
+                        <b>涵盖齐全</b>
+                    </span>
+                </span>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <a class="d_block animate_ftb h_md_auto banner_type_2 r_corners orange t_align_c tt_uppercase vc_child n_sm_vc_child">
+                <span class="d_inline_middle">
+                    <img class="d_inline_middle m_md_bottom_5" src="picture/banner_img_5.png" alt="">
+                    <span class="d_inline_middle m_left_10 t_align_l d_md_block t_md_align_c">
+                        <b>玩法丰富</b>
+                    </span>
+                </span>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 m_bottom_45">
+        <h2 class="tt_uppercase color_dark m_bottom_25">新手教程</h2>
+        <div class="tabs vertical clearfix">
+            <!--tabs navigation-->
+            <nav>
+                <ul class="tabs_nav clearfix f_left">
+                    <li class="m_bottom_5"><a href="#tab-1" class="bg_light_color_1 shadow color_dark tr_delay_hover d_block">如何进入服务器</a></li>
+                    <li class="m_bottom_5"><a href="#tab-2" class="bg_light_color_1 shadow color_dark tr_delay_hover d_block">为自己的家设置保护</a></li>
+                    <li class="m_bottom_5"><a href="#tab-3" class="bg_light_color_1 shadow color_dark tr_delay_hover d_block">为自己的箱子上锁</a></li>
+                    <li class="m_bottom_5"><a href="#tab-4" class="bg_light_color_1 shadow color_dark tr_delay_hover d_block">如何快速赚钱/发家</a></li>
+					<li class="m_bottom_5"><a href="#tab-5" class="bg_light_color_1 shadow color_dark tr_delay_hover d_block">强化功能玩法解读</a></li>
+					<li class="m_bottom_5"><a href="#tab-6" class="bg_light_color_1 shadow color_dark tr_delay_hover d_block">特色功能玩法教程</a></li>
+					<li class="m_bottom_5"><a href="#tab-7" class="bg_light_color_1 shadow color_dark tr_delay_hover d_block">服务器指令百科</a></li>
+                </ul>
+            </nav>
+            <!--tabs content-->
+            <section class="tabs_content shadow r_corners f_left">
+                <div id="tab-1">
+                    <h5 class="fw_medium m_bottom_10">下载Java-下载游戏-进入游戏</h5>
+                    <p class="m_bottom_10">如果以前没有安装过java 需要到官网进行安装<a href="http://www.java.com/zh_CN/download/"> 点我下载Java8 </a>(请勿下载Java8,否则无法进入游戏)</p>
+					 <p class="m_bottom_10">安装完成后下载客户端, 下载链接: <a href="http://www.iecraft.com/index.htmlabout.html">游戏下载点我 </a>, 下载完成后安装, 点击“开始游戏”打开游戏</p>
+                  <p class="m_bottom_10">在游戏名字处输入自己想要使用的名字(只能使用英文+数字的组合的名字，不可以使用中文名字),不能与别人使用的重复(不要选择简单的游戏名字)
+游戏设置全部弄好之后，请点击右下角的“开始游戏”</p>
+注意：打开客户端发现杀毒软件提示可疑行为，请允许全部通行，否则可能导致游戏打不开且闪退的现象！</p><p>&nbsp;</p>
+游戏启动完成后，点击进入多人游戏：</p>
+服务器一共有三条线路可供选择:&nbsp;&nbsp; 主干线路[双线线路]&nbsp; 联通线路&nbsp; 电信线路</p>
+【主要看您自家的网络是什么线路，连接专属的线路玩游戏会更流畅，若不确认，请点击双线线路！】
+IP:mc.iecraft.com [双线线路]
+<p>&nbsp;</p>
+
+                    <p>最后双击其中一个线路进入游戏即可！[如出现不能进入游戏等问题请进入IEcraft服务器吧反馈问题谢谢！</p>
+                </div>
+                <div id="tab-2">
+                    <h5 class="fw_medium m_bottom_10">划好领地范围-输入圈地指令</h5>
+                    <!--<img src="picture/shortcodes_img_01.jpg" class="m_bottom_15" alt="">-->
+                    <p>res领地教程-为自己的家设置保护</p>
+					<p>首先圈地工具为木锄头</p>
+                    <p>输入“/res ?”查看全部sub命令简要说明；</p>
+                    <p>输入“/res info”可以查看当前领地详细信息；</p>
+                    <p>输入“/res list”列出自己所拥有的领地；</p>
+                    <p>输入“/res listall”列出所有领地。</p>
+                    <p>一、设置领地：</p>
+                    <p>先用一个木锄头左键敲击一方块设置点A，右键敲击一方块设置点B（输入“/res select size”查看所选区域的大小）；</p>
+                    <p>输入/res select size 即可查看你所选择领地的大小和花费。如果游戏币不够是不能创建领地的之后输入“/res create 123”</p>
+                    <p>（例123为你领地的名字，更换成你想要设置的，区分大小写且不能与他人重复）这样设置后，就形成了[以AB连线为体对角线的长方体或正方体（包括A、B所在边）</p>
+                    <p>   </p>
+                    <p>二、移除领地：</p>		
+<p>输入“/res remove 123”（例）移除名为123的领地，注意，移除领地无法从服务器获得金钱！</p>	
+<p>输入“/res set 123 flags true/false”（例）来设置权限，其中：</p>	
+<p>①123是领地名，不填则默认为当前所处领地；②flags代表权限</p>	
+<p>权限列表：</p>	
+<p>权限名称	权限解释</p>	
+<p>move	移动
+build	改变地形
+place	放置物品
+destroy	破坏
+use	使用
+container	打开箱子
+pvp	玩家伤害
+tp	传送到该领地
+ignite	点火
+firespread	火的传播
+bucket	桶的使用
+lavaflow	岩浆流动
+waterflow	水的流动
+flow	岩浆流动和水的流动
+creeper	JJ怪爆炸
+tnt	Tnt爆炸
+monsters	怪物出生
+animals	动物出生
+subzone	子空间
+healin	治疗</p>	
+<p>③true/false是权限状态，若输入true则为开启，false则为关闭。</p>	
+<p>四、子空间设置： </p>	
+<p>如同设置领地一样选择区域，不同的是之后输入“/res subzone 123 abc”（例）设置母领地为123的名为abc的子空间，该区域的权限设置和移除则需要将领地名变为123.abc，</p>	
+<p>无则默认为当前所处领地（在子空间则为子空间）。</p>	
+<p>五、领地信息设置：</p>	
+<p>可以设置进出领地时的提示信息，输入“/res message 123 enter(leave) ABC”（例）设置领地123的进入（离开）时的提示信息为ABC，</p>	
+<p>123处不填，则默认为当前所处领地；</p>
+<p>特别地，在提示信息中可以添加：</p>
+<p>%player - 在提示信息中显示进出领地的玩家名</p>
+<p>%owner - 在提示信息中显示领主</p>
+<p>%residence - 在提示信息中显示该领地	</p>
+<p>六、玩家指令：	</p>
+<p>/res default [领地名]	重置某领地的权限设置	</p>
+<p>/res give [领地名] [玩家名]	将领地赠与某玩家，你必须是领主且被赠予玩家在线</p>
+<p>/res lists	预定领地许可清单的详细信息	</p>
+<p>/res message [领地名] [enter/leave] [信息]	设置进入/退出某领地时候显示的信息	</p>
+<p>/res message [领地名] remove [enter/leave]	移除进入/退出某领地时候的信息	</p>
+<p>/res mirror [源领地名] [目标领地名]	复制源领地的权限设置至目标领地	</p>
+<p>/res rename - [旧名称] [新名称]	重命名领地.对于子空间旧名称必须全名，新名称可以只写子空间名	</p>
+<p>/res renamearea [领地名] [旧名称] [新名称]	重命名某领地中某区域的名称	</p>
+<p>/res tp [领地名]	传送至某领地	</p>
+<p>/res tpset	设置当前领地的传送点为你站立的地方	</p>
+<p>/res unstuck	将你从当前领地移出	</p>
+					
+                </div>
+                <div id="tab-3">
+                    <h5 class="fw_medium m_bottom_10">箱子上锁</h5>
+                    <p class="m_bottom_10">使用箱子锁可以保护自己的箱子不被他人窃取，并且可以设置多人共享</p>
+ 
+操作方法<br/>
+手持牌子同时按住shift,右击箱子, 牌子就会放置到箱子上<br/>
+牌子上会出现<br/>
+[私有]<br/>
+玩家名<br/>
+ 
+这样的格式<br/>
+如果想要添加其他人在牌子上 ,让其他人共享箱子 ，空手右击箱子上的牌子 ，会出现提示<br/>
+输入如下命令将朋友的名字添加到箱子上<br/>
+/lockette 3 朋友的名字<br/>
+这时名字就会出现在牌子上的第三行,此时他就有权限打开箱子 </p>
+                    <p></p>
+                </div>
+                <div id="tab-4">
+                    <h5 class="fw_medium m_bottom_10">如何快速赚钱/发家</h5>
+                    <!--<img src="picture/shortcodes_img_01.jpg" class="m_bottom_15" alt="">-->
+                    <p>1.把自己挖到的物品出售给收购商人(主城NPC)这样可以赚取一笔不菲的初始资金，但是收购商人只收购一部分物品</p>
+					<p>2.物品道具还可以上架市场(/market create <手上物品价格> <出售多少个数量> 来把手上的物品道具上架到市场里面让其他玩家来购买)</p>
+					<p>3.有了初始资金和圈地然后开一个商店!普通玩家可以创建三十个商店摊位哦，开商店指令/qs </p>
+					<p>放置一个箱子手上拿着需要出售的物品输入价格创建完成就完成了</p>
+                </div>
+			
+                <div id="tab-5" style="line-height:22px">
+                    <h5 class="fw_medium m_bottom_10">武器淬炼玩法说明</h5>
+					<p>&nbsp;</p>
+                    <!--<img src="picture/shortcodes_img_01.jpg" class="m_bottom_15" alt="">-->
+					<p>装备淬炼系统：</p>
+					<p>1.签到、在线、杀怪、金子商城可以获得淬炼宝石</p>
+					<p>2.淬炼宝石分为普通、中等、高等、完美几个等级</p>
+					<p>3.品质越高的宝石，越适合高星级的装备进行淬炼</p>
+					<p style="font-size:12px;margin-left:15px">◆ 1-2星武器用普通级宝石或者完美级宝石进行淬炼没什么区别</p>
+					<p style="font-size:12px;margin-left:15px">◆ 12-13星级用普通级宝石与完美级宝石进行淬炼就是天差地别</p>
+					<p>4.淬炼宝石可以淬炼武器和护甲</p>
+					<p>5.淬炼成功装备星级提高1星，淬炼星级最高18星</p>
+					<p>6.淬炼失败装备星级将会降低0-3星</p>
+					<p>7.全身装备达到套装星级附加属性和特效</p>
+					<p style="font-size:12px;margin-left:15px">◆ 举个栗子：⑥星级套装，⑨星级套装，⑫星套，⑮ 星套 ，⑱星套 </p>
+					<p>8.金子商城有淬炼保护符出售，可保护装备3，6，9，12星装备的升级</p>
+					<p style="font-size:12px;margin-left:15px">◆ 受淬炼保护的装备失败不会低于所保护星级</p>
+					<p style="font-size:12px;margin-left:15px">◆ 但是要求装备星级大于等于所保护星级</p>
+					<p>&nbsp;</p>
+					<p style="font-size:16px">每个星套都有专属的粒子特效和属性加成</p>
+					<p style="font-size:16.5px">淬炼作用：大幅提高自身实力</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>关于淬炼系统星套附加属性说明：</p>
+					<p style="font-size:13.5px">✪六星套：</p>
+					<p style="font-size:11.5px;margin-left:15px">附加伤害+20，生命上限+10</p>
+					<p style="font-size:11.5px;margin-left:15px">造成伤害+10%，受到伤害-10%</p>
+					<p style="font-size:11.5px;margin-left:15px">每5秒恢复2生命</p>
+					<p style="font-size:13px">✪九星套：</p>
+					<p style="font-size:11.5px;margin-left:15px">附加伤害+50，生命上限+30</p>
+					<p style="font-size:11.5px;margin-left:15px">造成伤害+20%，受到伤害-20%</p>
+					<p style="font-size:11.5px;margin-left:15px">每5秒恢复3生命</p>
+					<p style="font-size:13px">✪十二星套：</p>
+					<p style="font-size:11.5px;margin-left:15px">附加伤害+100，生命上限+50</p>
+					<p style="font-size:11.5px;margin-left:15px">造成伤害+30%，受到伤害-30%</p>
+					<p style="font-size:11.5px;margin-left:15px">每5秒恢复5生命</p>
+					<p style="font-size:13px">✪十五星套：</p>
+					<p style="font-size:11.5px;margin-left:15px">附加伤害+150，生命上限+70</p>
+					<p style="font-size:11.5px;margin-left:15px">造成伤害+40%，受到伤害-30%</p>
+					<p style="font-size:11.5px;margin-left:15px">每5秒恢复5生命</p>
+					<p style="font-size:13px">✪十八星套：</p>
+					<p style="font-size:11.5px;margin-left:15px">附加伤害+250，生命上限+100</p>
+					<p style="font-size:11.5px;margin-left:15px">造成伤害+50%，受到伤害-50%</p>
+					<p style="font-size:11.5px;margin-left:15px">每5秒恢复15生命</p>
+                </div>
+
+                <div id="tab-6">
+                    <h5 class="fw_medium m_bottom_10">特色功能玩法说明</h5>
+                    <!--<img src="picture/shortcodes_img_01.jpg" class="m_bottom_15" alt="">-->
+
+<p>&nbsp;</p>
+QS快捷商店</p>
+拿着要卖的物品 左键点击箱子 会提示你输入价格 就OK了,对了要记得把你卖的东西放入箱子里. 东西卖完会提示卖完信息给你的.</p>
+/qs buy     修改商店为收购</p>
+/qs sell    修改商店为出售</p>
+/qs price   修改商品价格更</p>
+更多资料请输入指令/mc</p>
+<p>&nbsp;</p>
+全球市场</p>
+在主城找npc进入市场，或输入指令/market listings</p>
+购买后输入 /market mail 来取出购买物品</p>
+出售物品需要将物品拿在手上然后输入/market create 总价 数量</p>
+更多资料请输入指令/mc</p>
+<p>&nbsp;</p>
+
+
+地皮系统</p>
+/plotme claim <player> 为别人认领你脚下的地皮 </p>
+/plotme auto 自动认领顺序下一个地皮 </p>
+/plotme home[:#] 设置家，如果你有多个: </p>
+/plotme home 会带你去你1号地皮.</p>
+/plotme home:2 会带你去2号地皮. </p>
+/plotme home[:#] <player> 去别人家/plotme home id 会带你去他的1号地皮.</p>
+/plotme home:2 id 会带你去他的2号地皮. </p>
+/plotme list 列出你的地皮 </p>
+/plotme list <player> 列出别人的地皮 </p>
+/plotme info 列出你站在的地皮的信息(包括地皮id, 主人,地形, 日期, 结束 帮助). </p>
+/plotme comment <text> 评论一下（留言）到当前的地皮 </p>
+/plotme comments 查看各种留言 </p>
+/plotme biome 查看目前地形 </p>
+/plotme biome <biome> 改变当前地皮的地形 </p>
+/plotme biomelist 列出可设置地形 </p>
+/plotme tp <id> 传送到某个地皮 </p>
+/plotme id 查看当前地皮的id和坐标 </p>
+/plotme clear 将地皮初始化到认领时候的样子（地形哦~慎用） </p>
+/plotme reset 还原地皮（慎用，解除占领的） </p>
+/plotme add <player> 给某个玩家在你地皮建造的权限 </p>
+/plotme remove <player> 移除某个玩家在你地皮建造的权限 </p>
+/plotme setowner <player> 过户你的领地给玩家</p>
+<p>&nbsp;</p>
+
+
+商城系统</p>
+使用菜单或右键主城点券商城npc进入商城</p>
+商城内可以购买VIP 礼包 银子等物品</p>
+<p>&nbsp;</p>
+ 
+
+                </div>
+				
+                <div id="tab-7">
+                    <h5 class="fw_medium m_bottom_10">指令百科</h5>
+                    <!--<img src="picture/shortcodes_img_01.jpg" class="m_bottom_15" alt="">-->
+ 
+ 
+/sethome 设置家</p>
+/home 传送回家</p>
+/back 返回上一次死亡地点</p>
+/spawn 回到主城</p>
+/sethome [家的名称] 在你现在站着的地方设置一个家</p>
+/home [家的名称] 传送回家</p>
+/tpa [id] 传送到某一个玩家的身边</p>
+/tpahere [id]将某一个玩家传送到你的身边</p>
+/tpaccept 接受传送请求</p>
+/tpdeny 拒绝传送请求</p>
+/list 查看在线的玩家以及人数</p>
+/res 查看领地帮助</p>
+/money 查看自己的金钱</p>
+/bal [id] 查看别人的金钱</p>
+/money top 查看金钱排行榜</p>
+  
+ 
+                </div>				
+				
+				
+				
+				
+				
+            </section>
+        </div>
+    </div>
+</section>
+﻿<!--content-->
+<div class="page_content_offset" style="padding:0">
+    <div class="container">
+        <!--banners-->
+        <section class="row clearfix">
+            <div class="col-lg-6 col-md-6 col-sm-6 m_bottom_50 m_sm_bottom_35" onmouseover="$('.sbqqa').css({color:'#e74c3c'}),$('.sbqqb').css({color:'#fff'});" onmouseout="$('.sbqqa').css({color:'#fff'}),$('.sbqqb').css({color:'#e74c3c'});">
+                <a href="guide.html" class="d_block banner animate_ftr wrapper r_corners relative m_xs_bottom_30">
+                    <img src="picture/banner_img_1_2.jpg" alt="" width="100%">
+                    <span class="banner_caption d_block vc_child t_align_c w_sm_auto">
+                        <span class="d_inline_middle">
+                            <span class="d_block scheme_color banner_title type_1 m_bottom_5 m_mxs_bottom_5 sbqqb"><b>新手教学</b></span>
+                            <span class="d_block color_dark tt_uppercase m_bottom_5 let_s"></span>
+                            <span class="d_block divider_type_2 centered_db m_bottom_5"></span>
+                            <span class="d_block color_light tt_uppercase m_bottom_25 m_xs_bottom_10 banner_title tr_all_hover sbqqa"><b>从新手到高玩</b></span>
+                            <span class="button_type_6 bg_dark_color tt_uppercase r_corners color_light d_inline_b tr_all_hover box_s_none f_size_ex_large">了解详情</span>
+                        </span>
+                    </span>
+                </a>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 m_bottom_50 m_sm_bottom_35" onmouseover="$('.sbqqc').css({color:'#e74c3c'}),$('.sbqqd').css({color:'#fff'});" onmouseout="$('.sbqqc').css({color:'#fff'}),$('.sbqqd').css({color:'#e74c3c'});">
+                <a href="vip.html" class="d_block banner animate_ftr wrapper r_corners type_2 relative">
+                    <img src="picture/banner_img_2_2.jpg" alt="" width="100%">
+                    <span class="banner_caption d_block vc_child t_align_c w_sm_auto">
+                        <span class="d_inline_middle">
+                            <span class="d_block scheme_color banner_title type_2 m_bottom_5 m_mxs_bottom_5 sbqqd"><b>充值</b></span>
+                            <span class="d_block divider_type_2 centered_db m_bottom_5 d_sm_none"></span>
+                            <span class="d_block color_light tt_uppercase m_bottom_15 banner_title_3 m_md_bottom_5 d_mxs_none tr_all_hover sbqqc"><b>你渴望力量吗</b></span>
+							<span class="button_type_6 bg_dark_color tt_uppercase r_corners color_light d_inline_b tr_all_hover box_s_none f_size_ex_large">我要变强</span>
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+    </div>
+</div>
+<!--markup footer-->
+<footer id="footer" class="type_2">
+    <div class="footer_top_part">	
+
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-4 col-sm-4 m_xs_bottom_30">
+                    <h3 class="color_light_2 m_bottom_20">关于IEcraft服务器</h3>
+                    <p class="m_bottom_15">IEcraft服务器Minecraft服务器始建于2012年06月18日。现如今已有五年历史,国内骨灰级大型联机千人服务器。</p>
+                        服务器同时在线峰值更达千人，注册用户庞大，目前服务器版本1.8-1.12<br />
+						服务器原创玩法多样，服务器内容稳定更新。欢迎和朋友们一起来玩IEcraft服务器哟！<br />
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 m_xs_bottom_30">
+                    <h3 class="color_light_2 m_bottom_20">官方网站</h3>
+                    <ul class="vertical_list">
+                        <li><a class="color_light tr_delay_hover" href="index.html">官方主页<i class="fa fa-angle-right"></i></a></li>
+                        <li><a class="color_light tr_delay_hover" href="index.htmlguide.html">新手教程<i class="fa fa-angle-right"></i></a></li>
+                        <li><a class="color_light tr_delay_hover" href="index.htmlabout.html">游戏下载<i class="fa fa-angle-right"></i></a></li>
+                        <li><a class="color_light tr_delay_hover" href="index.htmlvip.html">点券充值<i class="fa fa-angle-right"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 m_xs_bottom_30">
+                    <h3 class="color_light_2 m_bottom_20">服务器地址</h3>
+                    <ul class="vertical_list">
+                        <li><a href="about.html" class="color_light tr_delay_hover" href=""><img src="picture/world_2.png" alt="">&nbsp; &nbsp;mc.iecraft.com</i></a></li>
+                        <li><a class="color_light tr_delay_hover" href=""><img src="picture/world_2.png" alt="">&nbsp; &nbsp;dx.iecraft.com</i></a></li>
+                        <li><a class="color_light tr_delay_hover" href=""><img src="picture/world_2.png" alt="">&nbsp; &nbsp;wt.iecraft.com</i></a></li>
+                        <li><a class="color_light tr_delay_hover" href=""><img src="picture/world_2.png" alt="">&nbsp; &nbsp;敬请期待</i></a></li>
+                    </ul>
+                </div>
+               
+                <div class="col-lg-2 col-md-2 col-sm-2 m_xs_bottom_30">
+                    <h3 class="color_light_2 m_bottom_20">关注我们</h3>
+                    <ul class="vertical_list">
+                        <li><a class="color_light tr_delay_hover" href="#">论坛社区<i class="fa fa-angle-right"></i></a></li>
+                        <li><a class="color_light tr_delay_hover" href="http://tieba.baidu.com/f?kw=%B5%D8%C7%F2%B6%BC%CA%D0&fr=ala0"target="_blank">百度贴吧<i class="fa fa-angle-right"></i></a></li>
+                        <li><a class="color_light tr_delay_hover" href="#" target="_blank">新浪微博<i class="fa fa-angle-right"></i></a></li>
+                        <li><a class="color_light tr_delay_hover" href="http://jq.qq.com/?_wv=1027&k=fAq23q">QQ群<i class="fa fa-angle-right"></i></a></li>
+                    </ul>
+                </div>
+               
+				
+                
+            </div>
+        </div>
+    </div>
+    <!--shenme gui-->
+    <div class="footer_bottom_part">
+        <div class="container clearfix t_mxs_align_c">                                                                                                   <!--请勿删除此IEcraft.com的超链接，感谢您的配合！-->
+            <p class="f_left f_mxs_none m_mxs_bottom_10">&copy; 2020 <span class="color_light"> XXX服务器</span>.&nbsp; All Rights Reserved.&nbsp;&nbsp;   <a href="http://www.iecraft.com/">IEcraft.com</a>&nbsp;&nbsp;  </p>
+      &nbsp;  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000440501'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.html%3Fid%3D1000440501' type='text/javascript'%3E%3C/script%3E"));</script>
+    </div>
+</footer>
+</div>
+<!--you can you up-->
+<ul class="social_widgets d_xs_none">
+    <li class="relative">
+        <button class="sw_button t_align_c facebook"><i class="fa fa-weibo"></i></button>
+        <div class="sw_content">
+            <h3 class="color_dark m_bottom_20">暂无</h3>
+    
+        </div>
+    </li>
+    <li class="relative">
+        <button class="sw_button t_align_c contact"><i class="fa fa-qq"></i></button>
+        <div class="sw_content">
+            <h3 class="color_dark m_bottom_20">QQ交流群</h3>
+            <p class="f_size_medium m_bottom_15">iecraft.com </p>
+        </div>	
+    </li>
+</ul>
+
+<button class="t_align_c r_corners type_2 tr_all_hover animate_ftl" id="go_to_top"><i class="fa fa-angle-up"></i></button>
+<!--no can no bb-->
+<script src="js/retina_2.js"></script>
+<script src="js/jquery.flexslider-min_2.js"></script>
+<script src="js/waypoints.min_2.js"></script>
+<script src="js/scripts_2.js"></script>
+</body>
+</html>
