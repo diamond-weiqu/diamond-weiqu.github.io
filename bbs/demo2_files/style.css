@@ -1,0 +1,125 @@
+/*
+[name]绿[/name]
+[iconbgcolor]#4caf50[/iconbgcolor]
+F**k you stupid Discuz! X
+*/
+
+:root {
+    --main-color: #4caf50;
+    --main-color-1: #e8f5e9;
+    --main-color-2: #c8e6c9;
+    --main-color-3: #a5d6a7;
+    --main-color-4: #81c784;
+    --main-color-5: #66bb6a;
+    --main-color-6: #4caf50;
+    --main-color-7: #43a047;
+    --main-color-8: #388e3c;
+    --main-color-9: #2e7d32;
+    --main-color-0: #1b5e20;
+    --main-color-deep: #6e7e6e;
+    --accent-color: #3f51b5;
+    --common-shadow: #a5d6a74d 0 5px 8px -5px, #a5d6a780 0 5px 30px -5px;
+    --text-color-bg: rgba(255,255,255,0.95);
+    --text-color-default: black;
+    --alert-color: #f44336;
+    --warn-color: #ff9800;
+}
+
+
+.uix_extendedFooter,
+.uix_extendedFooter > div:not(.uix_fabBar) {
+    background-color: var(--main-color-2);
+}
+
+html {
+    background-color: var(--main-color-1)!important;
+    background-image: none;
+}
+
+a:hover,
+.node .node-body a:hover,
+.structItem-title a:hover,
+.p_pop a:hover, .p_pop a.a, #sctype_menu .sca{
+    color: var(--main-color-0);
+}
+
+.p-nav .p-nav-opposite .p-navgroup-link {
+    color: var(--main-color-deep);
+}
+
+.t_f a,
+.xi2,
+.xi2 a,
+.xi3 a,
+#atarget,
+.unchk,
+.chked,
+.appl li.a a,
+#pt .z a:last-child,
+.xlda dd a,
+#pt .z{
+    color: var(--main-color-8);
+}
+
+.uix_sidebarNav .uix_sidebarNavList>li .is-selected .p-navEl__inner,
+.blocker.block--category .block-header,
+.p-pageWrapper .uix_mainTabBar .block-tabHeader .tabs-tab.is-active::after,
+.bm_h,a.sidePanel__tab,.offCanvasMenu--nav .offCanvasMenu-linkHolder.is-selected a, .offCanvasMenu--nav .offCanvasMenu-linkHolder.is-selected .offCanvasMenu-link,
+.appl li.a,
+.pn,
+.page-selector .page-switch-btn.active {
+    background-color: var(--main-color);
+    color: var(--text-color-bg);
+}
+
+.notice_pm, .notice_mypost,.notice_all , .notice_interactive, .notice_system, .notice_manage, .notice_app,
+.attach-ctrl-icon .fas {
+    color: var(--main-color);
+}
+
+.block-header a:hover {
+    color: var(--text-color-bg);
+}
+
+.title, .p-body-sideNav .block-minorHeader, .p-body-sidebar .block-minorHeader, .columnContainer-sidebar .block-minorHeader, .p-body-sideNav .block-header, .p-body-sidebar .block-header, .columnContainer-sidebar .block-header, .tbn .mt.bbda,
+.mn .tb li.a a{
+    border-bottom-color: var(--main-color);
+}
+
+.block-container, .tbn {
+    border-color: var(--main-color-1);
+    box-shadow: var(--common-shadow);
+}
+
+.p-pageWrapper .p-navSticky.is-sticky>* ,.uix_sidebarNav{
+    box-shadow: var(--common-shadow);
+}
+
+.p_pop a:hover, .p_pop a.a, #sctype_menu .sca {
+    background-color: var(--main-color-1);
+}
+
+.button.button--scroll, button.button a.button.button--scroll {
+    background-color: var(--main-color-6);
+}
+.button.button--scroll:hover, button.button a.button.button--scroll:hover, .button.button--scroll:focus, button.button a.button.button--scroll:focus {
+    background-color: var(--main-color-8);
+    box-shadow: var(--common-shadow);
+}
+.button.button--scroll:active, button.button a.button.button--scroll:active {
+    background-color: var(--main-color-0);
+}
+
+.new-template-fab .btn_sqrt {
+    box-shadow: var(--common-shadow);
+    background: var(--main-color);
+}
+
+.attach-download-circle circle {
+    stroke: var(--main-color);
+}
+
+.ttp a:hover,.ttp .a a {
+    border-color: var(--main-color);
+    color: var(--main-color-8);
+}

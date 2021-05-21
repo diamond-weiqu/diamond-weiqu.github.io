@@ -1,0 +1,117 @@
+(function (){
+    var updateInterval = null;
+    var alignItem = function(target,itemW) {
+        var sL = target.scrollLeft;
+        var oW = target.offsetWidth;
+        var offset = Math.floor((sL+oW/2) / itemW);
+        var bL = sL + oW / 2 - offset * itemW;
+        offset += Math.abs(bL)>Math.abs(bL-itemW) ? 1 : 0;
+        animateProp(target,{
+            "duration": 250,
+            "value": offset * itemW - oW / 2,
+            "propName": "scrollLeft"
+        });
+    }
+
+    var animateProp = function(target,opt){
+        var aObj = document.createElement("a");
+        aObj.setAttribute("style","position: fixed; visibility: hidden; opactiy: 0;left: 0px;");
+        aObj.style.transitionDuration = opt.duration.toString() + "ms";
+        document.body.append(aObj);
+        void aObj.offsetLeft;
+        var targetVal = opt.value - target[opt.propName];
+        aObj.style.left = targetVal.toString() + "px";
+        var run = 0;
+        aObj.runner = setInterval(function(){
+            target[opt.propName] += aObj.offsetLeft - run;
+            run = aObj.offsetLeft;
+            if(aObj.offsetLeft == targetVal){
+                clearInterval(aObj.runner);
+                if(typeof opt.callback == "function"){
+                    opt.callback();
+                }
+                aObj.remove();
+            }
+        },10);
+    }
+
+    var ctrlBtn = function (target,itemW,left){
+        animateProp(target,{
+            "duration": 250,
+            "value": target.scrollLeft + (left ? itemW : -itemW),
+            "propName": "scrollLeft"
+        });
+    }
+
+    function setTx(obj,x,op,sc){
+        var oS = obj.style;
+        oS.opacity = op;
+        oS.transform =  "translateX("+x+"px) scale("+sc+")";
+    }
+
+    function recalcItem(e,layer,items) {
+        var itemW = items[0].offsetWidth;
+        var layerW = layer.offsetWidth;
+        if(layer.scrollLeft < (itemW * 3 - layerW / 2)) {
+            e.preventDefault();
+            layer.inOpearting = true;
+            layer.scrollLeft = itemW * (items.length - 1) - (layerW / 2);
+        } else if(layer.scrollLeft >(itemW * (items.length - 1) - (layerW / 2))){
+            e.preventDefault();
+            layer.inOpearting = true;
+            layer.scrollLeft = itemW * 3 - (layerW / 2);
+        }
+        var index = Math.floor((layer.scrollLeft + (layerW / 2)) / itemW) - 1;
+        var base = layer.scrollLeft + (layerW / 2);
+        var offset = Math.max(0,Math.min(1,Math.abs(base - itemW * (index+1)) / itemW)) ;
+        var cItem = items[index];
+        setTx(cItem,((base - itemW * (index+1)) > 0 ? 1:-1)*100*offset,0.5 * (2-offset),1 - 0.4 * offset);
+        setTx(cItem.nextElementSibling,-100*(1-offset),0.5 * (1+offset),0.6 + 0.4 * offset);
+        setTx(cItem.previousElementSibling,100*(1-offset),0.5 * (1+offset),0.6 + 0.4 * offset);
+    }
+
+    window.initAlbum = function (){
+        var albums = document.querySelectorAll(".plhin .album_wrapper[initiated='false']");
+        for(var album of albums) {
+            var layer = album.querySelector(".album_layer");
+            var items = layer.querySelectorAll(".album_item");
+            var lBtn = album.querySelector(".album_ctrl.left");
+            var rBtn = album.querySelector(".album_ctrl.right");
+            for(var i of album.querySelectorAll(".album_layer > *:not(.album_item)")) {
+                i.remove();
+            }
+            if(items.length == 0){continue;}
+            if(items.length > 1){
+                // "ph" for placeholders
+                var ph = [items[0],items[1],items[items.length - 1],items[items.length -2]];
+                for(var index in ph){
+                    ph[index] = ph[index].cloneNode(true);
+                    ph[index].classList.add("placeholder");
+                }
+                layer.prepend(ph[3],ph[2]);
+                layer.append(ph[0],ph[1]);
+            } else {
+                
+            }
+            items = [...layer.querySelectorAll(".album_item")];
+            album.setAttribute("initiated","true");
+            layer.addEventListener('scroll',function(e){
+                if(layer.inOpearting == true){layer.inOpearting=false;return;}
+                clearTimeout(layer.alignTimer);
+                layer.alignTimer = setTimeout(function(){
+                    alignItem(layer,items[0].offsetWidth);
+                },300);
+                recalcItem(e,layer,items);
+            });
+            layer.scrollLeft = 3 * items[0].offsetWidth - layer.offsetWidth / 2;
+            lBtn.addEventListener("click",function(){ctrlBtn(layer,items[0].offsetWidth,false)});
+            rBtn.addEventListener("click",function(){ctrlBtn(layer,items[0].offsetWidth,true)});
+        }
+    }
+    window.requestUpdateAlbums = function (){
+        clearTimeout(updateInterval);
+        updateInterval = setTimeout(function (){
+            initAlbum();
+        },100);
+    }
+})();

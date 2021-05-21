@@ -1,0 +1,374 @@
+// Fancybox support
+// Replace image zoom with fancybox
+
+window.zoom = function (obj, zimg, nocover, pn, showexif) {
+    var parent = obj.parentElement;
+    var target = obj.id;
+    while(parent.className !== "plhin" && parent.parentElement != null) {parent = parent.parentElement}
+    if(parent === document.documentElement) {return;}
+    var pid = parent.id.substr(3);
+    jq("#pid"+pid.toString()+".plhin img.zoom").removeAttr("onclick").each(function(i,v){
+        v.outerHTML = "<a href=\"" + (v.getAttribute("zoomfile") ? v.getAttribute("zoomfile") : v.src) + "\" data-fancybox=\"fancypid" + pid.toString() + "\">"+v.outerHTML+"</a>"
+    });
+    jQuery("#pid"+pid.toString()+".plhin a[data-fancybox]").fancybox({
+        transitionEffect: "slide",
+        lang: "zh_cn",
+        i18n: {
+            zh_cn: {
+                CLOSE: "关闭",
+                NEXT: "下一张",
+                PREV: "上一张",
+                ERROR: "暂时不能加载内容<br/> 请稍后重试.",
+                PLAY_START: "开始幻灯片放映",
+                PLAY_STOP: "暂停幻灯片放映",
+                FULL_SCREEN: "全屏",
+                THUMBS: "缩略图",
+                DOWNLOAD: "下载",
+                SHARE: "分享",
+                ZOOM: "缩放"
+            }
+        }
+    });
+    $(obj.id).parentNode.click();
+}
+
+// ScrollToTop Button
+window.checkTopBtn = function () {
+    var targetBtn = document.querySelector(".scrollTopBtn").classList;
+    window.document.scrollingElement.scrollTop > 30 ? targetBtn.remove("hidden") : targetBtn.add("hidden"); 
+}
+
+_attachEvent(document,"DOMContentLoaded",function (){
+    // Topbar button 2-steps-touch-to-open
+    jq(".p-navgroup .p-navgroup-link").on("touchend",function(e){
+        if(e.target.blocklink === true){
+            return true;
+        }
+        e.preventDefault();
+        jq(e.target).prop("blocklink",true).trigger("mouseover");
+    }).prop("outfunc",function(){
+        this.blocklink = false;
+    });
+
+    changeBar();
+    checkTopBtn();
+    _attachEvent(window, 'scroll', function(){
+        changeBar();
+        checkTopBtn();
+    });
+    if(jq(".p-body-sidebar .uix_sidebar--scroller *:not(.area,#sidebar-backdrop)").length <= 0) {
+	    jq(".p-body-sidebar,#showSidebar").remove();
+	    jq(".p-body-main").removeClass("p-body-main--withSidebar");
+    } else {
+        jq(".p-body-main").addClass("p-body-main--withSidebar");
+    }
+    if($("thread_types")) {
+        checkTTPScroll();
+        var ttp = $("thread_types");
+        _attachEvent($('ttp-scroll-left'),'click',function() {ttp.scrollTo(ttp.scrollLeft-100,0)});
+        _attachEvent($('ttp-scroll-right'),'click',function () {ttp.scrollTo(ttp.scrollLeft+100,0)});
+        _attachEvent(ttp,'scroll',checkTTPScroll);
+        _attachEvent(window,'resize',checkTTPScroll);
+    }
+
+    if($("page_jumper_menu")) {
+        (function (){
+            var basePageUrl = window.location.href;
+            basePageUrl = basePageUrl.replaceAll(new RegExp("[\?&]page=[0-9]+","g"),"");
+            function gotoPage(page){
+                window.location  = basePageUrl + "&page=" + page;
+            }
+            jq(".page-switch-btn:not(.page-selector)").on('click',function(e){
+                gotoPage(e.currentTarget.getAttribute('data-page'));
+            });
+            jq(".page-switch-btn.page-selector").on('click',function(e){
+                e.currentTarget.id="page_jumper";
+                showMenu({'ctrlid':'page_jumper'});
+                e.currentTarget.removeAttribute("id");
+            });
+            jq(".page-jumper-input").on("keypress",function(e){
+                if(e.charCode==13){
+                    gotoPage(e.currentTarget.value);
+                }
+            });
+            jq(".page-jumper-submit").on("click",function(e){
+                gotoPage(e.currentTarget.parentElement.querySelector(".page-jumper-input").value);
+            })
+    
+        })();
+    }
+});
+
+window.setMenuPosition = (function (showid, menuid, pos) {
+    var showObj = $(showid);
+    var menuObj = menuid ? $(menuid) : $(showid + '_menu');
+    if(isUndefined(pos) || !pos) pos = '43';
+    var basePoint = parseInt(pos.substr(0, 1));
+    var direction = parseInt(pos.substr(1, 1));
+    var important = pos.indexOf('!') != -1 ? 1 : 0;
+    var sxy = 0, sx = 0, sy = 0, sw = 0, sh = 0, ml = 0, mt = 0, mw = 0, mcw = 0, mh = 0, mch = 0, bpl = 0, bpt = 0;
+
+    if(!menuObj || (basePoint > 0 && !showObj)) return;
+    if(showObj) {
+        sxy = fetchOffset(showObj);
+        sx = sxy['left'];
+        sy = sxy['top'];
+        if (menuObj.parentNode.id == "p-account") {
+            bodyxy = fetchOffset($('p-navSticky'));
+            sx = sx - bodyxy['left'];
+            sy = sy - bodyxy['top'];
+        } else if (menuObj.parentNode.id != 'append_parent') {
+            bodyxy = fetchOffset($('p-body-inner'));
+            sx = sx - bodyxy['left'];
+            sy = sy - bodyxy['top'];
+        }
+
+        sw = showObj.offsetWidth;
+        sh = showObj.offsetHeight;
+    }
+    mw = menuObj.offsetWidth;
+    mcw = menuObj.clientWidth;
+    mh = menuObj.offsetHeight;
+    mch = menuObj.clientHeight;
+
+    switch(basePoint) {
+        case 1:
+            bpl = sx;
+            bpt = sy;
+            break;
+        case 2:
+            bpl = sx + sw;
+            bpt = sy;
+            break;
+        case 3:
+            bpl = sx + sw;
+            bpt = sy + sh;
+            break;
+        case 4:
+            bpl = sx;
+            bpt = sy + sh;
+            break;
+    }
+    switch(direction) {
+        case 0:
+            menuObj.style.left = (document.body.clientWidth - menuObj.clientWidth) / 2 + 'px';
+            mt = (document.documentElement.clientHeight - menuObj.clientHeight) / 2;
+            break;
+        case 1:
+            ml = bpl - mw;
+            mt = bpt - mh;
+            break;
+        case 2:
+            ml = bpl;
+            mt = bpt - mh;
+            break;
+        case 3:
+            ml = bpl;
+            mt = bpt;
+            break;
+        case 4:
+            ml = bpl - mw;
+            mt = bpt;
+            break;
+    }
+    var scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+    var scrollLeft = Math.max(document.documentElement.scrollLeft, document.body.scrollLeft);
+    if(!important) {
+        if(in_array(direction, [1, 4]) && ml < 0) {
+            ml = bpl;
+            if(in_array(basePoint, [1, 4])) ml += sw;
+        } else if(ml + mw > scrollLeft + document.body.clientWidth && sx >= mw) {
+            ml = bpl - mw;
+            if(in_array(basePoint, [2, 3])) {
+                ml -= sw;
+            } else if(basePoint == 4) {
+                ml += sw;
+            }
+        }
+        if(in_array(direction, [1, 2]) && mt < 0) {
+            mt = bpt;
+            if(in_array(basePoint, [1, 2])) mt += sh;
+        } else if(mt + mh > scrollTop + document.documentElement.clientHeight && sy >= mh) {
+            mt = bpt - mh;
+            if(in_array(basePoint, [3, 4])) mt -= sh;
+        }
+    }
+    if(pos.substr(0, 3) == '210') {
+        ml += 69 - sw / 2;
+        mt -= 5;
+        if(showObj.tagName == 'TEXTAREA') {
+            ml -= sw / 2;
+            mt += sh / 2;
+        }
+    }
+    if(direction == 0 || menuObj.scrolly) {
+        if(BROWSER.ie && BROWSER.ie < 7) {
+            if(direction == 0) mt += scrollTop;
+        } else {
+            if(menuObj.scrolly) mt -= scrollTop;
+            menuObj.style.position = 'fixed';
+        }
+    }
+    if(ml) menuObj.style.left = ml + 'px';
+    if(mt) menuObj.style.top = mt + 'px';
+    if(direction == 0 && BROWSER.ie && !document.documentElement.clientHeight) {
+        menuObj.style.position = 'absolute';
+        menuObj.style.top = (document.body.clientHeight - menuObj.clientHeight) / 2 + 'px';
+    }
+    if(menuObj.style.clip && !BROWSER.opera) {
+        menuObj.style.clip = 'rect(auto, auto, auto, auto)';
+    }
+});
+_attachEvent(window,"resize",function (){document.documentElement.style.setProperty('--real-vh',window.innerHeight * 0.01 + 'px');});
+function checkTTPScroll () {
+    var ttp = $("thread_types");
+    var wrapper = document.querySelector(".ttp-scroll-wrapper");
+    ttp.scrollLeft == 0 ? wrapper.classList.add("ttp-scroll-left-end") : wrapper.classList.remove("ttp-scroll-left-end");
+    ttp.scrollLeft + ttp.clientWidth == ttp.scrollWidth ? wrapper.classList.add("ttp-scroll-right-end") : wrapper.classList.remove("ttp-scroll-right-end");
+}
+window.dispatchEvent(new Event("resize"));
+(function() {
+    var _showMenu = showMenu ? showMenu : function(){};
+    function touchDragMenu (obj,evt) {
+        if (dragMenuDisabled || in_array(e.target ? e.target.tagName : e.srcElement.tagName, ['TEXTAREA', 'INPUT', 'BUTTON', 'SELECT'])) {
+            return;
+        }
+        var touch = evt.changedTouches[0];
+        obj.touchingId = touch.identifier;
+        var oriTop = obj.style.top == "" ? 0 : parseInt(obj.style.top);
+        var oriLeft = obj.style.left == "" ? 0 : parseInt(obj.style.left);
+        obj.oriPos = [oriLeft,oriTop,touch.clientX,touch.clientY];
+        obj.ontouchmove = function (e) {
+            var touch = null;
+            for(t of e.changedTouches) {
+                if(t.identifier == obj.touchingId) {
+                    touch = t;
+                    break;
+                }
+            }
+            if(touch === null) {return;}
+            e.preventDefault();
+            var oriPos = obj.oriPos;
+            var tX = touch.clientX;
+            var tY = touch.clientY;
+            obj.style.left = oriPos[0] + (tX - oriPos[2]) + "px";
+            obj.style.top = oriPos[1] + (tY - oriPos[3]) + "px";
+        }
+        obj.ontouchcancel = obj.ontouchend = function(e) {
+            for(t of e.changedTouches) {
+                if(t.identifier == obj.touchingId) {
+                    obj.touchingId = -1;
+                    obj.oriPos = null;
+                    obj.ontouchmove = null;
+                }
+            }
+        }
+    }
+    window.showMenu = function (v){
+        var ctrlid = isUndefined(v['ctrlid']) ? v : v['ctrlid'];
+        var showid = isUndefined(v['showid']) ? ctrlid : v['showid'];
+        var menuid = isUndefined(v['menuid']) ? showid + '_menu' : v['menuid'];
+        var menuObj = $(menuid);
+        var drag = isUndefined(v['drag']) ? '' : v['drag'];
+        var dragobj = drag && $(drag) ? $(drag) : menuObj;
+        if (drag) {
+            dragobj.ontouchstart = function(event) {
+                try {
+                    touchDragMenu(menuObj, event);
+                } catch (e) {}
+            }
+        }
+        _showMenu(v);
+    }
+    if(window.showDialog) {
+        var __showDialog = window.showDialog;
+        window.showDialog = function (msg, mode, t, func, cover, funccancel, leftmsg, confirmtxt, canceltxt, closetime, locationtime) {
+            msg = "<table><tr><td>" + msg + "</td></tr></table>";
+            __showDialog(msg, mode, t, func, cover, funccancel, leftmsg, confirmtxt, canceltxt, closetime, locationtime);
+        }
+    }
+})();
+function calc1024Unit(int) {
+    var unit = [" "," K"," M"," G"," T"," P"];
+    var index = 0;
+    while (int>1024 && index < unit.length) {
+        int = int / 1024;
+        index++;
+    }
+    int = int.toFixed(2);   
+    return int.toString() + unit[index];
+}
+
+function attach_download_ctrl(obj) {
+    if(obj.className.indexOf("attach-download-link") >= 0) {
+        var main = obj.parentNode.parentNode;
+        var isCtrl = false;
+    } else if(obj.className.indexOf("attach-download-indicator") >= 0) {
+        var main = obj.parentNode;
+        var isCtrl = true;
+    } else {
+        return true;
+    }
+    var urlObj = main.querySelector(".attach-download-link");
+    if(!urlObj){return true;}
+    if(!main.DownloadInit) {
+        main.DownProgress = main.querySelector(".download-progress");
+        main.DownCircle = main.querySelector(".attach-download-circle circle")
+        main.Downloader = new RangeDownloader({
+            url: urlObj.href,
+            onload: function(_self) {
+                main.classList.remove("downloading");
+                main.classList.add("downloaded");
+                main.DownProgress.innerText = "";
+                main.DownLink.href = URL.createObjectURL(_self.getResultAsBlob());
+                main.DownLink.click();
+                clearInterval(main.DownIndicator);
+            },
+            onerror: function (_self) {
+                main.DownProgress.innerText = "下载错误";
+                main.classList.remove("downloading");
+                main.classList.add("download-err");
+            }
+        });
+        main.DownIndicator = setInterval(function (){
+            main.DownProgress.innerText = calc1024Unit(main.Downloader.downloadedSize);
+            var downP = main.Downloader.totalSize == 0 ? (main.Downloader.supportPartial ? 0 : 0.5) : main.Downloader.downloadedSize / main.Downloader.totalSize;
+            main.DownCircle.setAttribute("stroke-dashoffset",(1-downP) * 80);
+        }, 1000);
+        var ele = document.createElement("a");
+        ele.style.display = "none";
+        ele.download = urlObj.innerText;
+        main.append(ele);
+        main.DownLink = ele;
+        main.DownloadInit = true;
+    }
+    var down = main.Downloader;
+    if(!down.running && !down.loaded) {
+        down.start();
+        main.classList.add("downloading");
+    }
+    if(isCtrl && down.running == true) {
+        down.pause();
+        main.classList.remove("downloading");
+    }
+    if(down.loaded == true) {
+        main.DownLink.click();
+    }
+
+    return false;
+}
+
+function isTemplate(temp) {
+    var cur = document.body.getAttribute("data-template");
+    temp = temp.replace("/","\\/").replace("*","[a-zA-Z0-9]*");
+    var reg = new RegExp("^" + temp + "$");
+    return reg.test(cur);
+}
+
+function collapseMd(obj) {
+    var ele = obj.parentElement;
+    if(!ele){return}
+    ele = ele.classList;
+    ele.contains("md_collapsed") ? ele.remove("md_collapsed") : ele.add("md_collapsed");
+}
+
