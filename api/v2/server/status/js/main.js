@@ -48,8 +48,8 @@ $(document).ready(()=>{
   const ip = $(".sip").attr("data-ip");
   const port = $(".sip").attr("data-port");
 
-  $.get(`https://api.imlazy.ink/mcapi/?host=${ip}&port=${port}&name=${name}&type=json`, (result)=>{
-    if (result.online) {
+  $.get(`https://api.imlazy.ink/mcapi/?host=${ip}&port=${port}&name=VeltGop&type=json`, (result)=>{
+    if (result.status = "在线") {
       $(".sip").html(result.players_online);
     } else {
       $(".playercount").html("Server isn't online!");
@@ -58,7 +58,7 @@ $(document).ready(()=>{
 
   setInterval(()=>{
     $.get(`https://api.imlazy.ink/mcapi/?host=${ip}&port=${port}&name=${name}&type=json`, (result)=>{
-      if (result.online) {
+      if (result.status = "在线") {
         $(".sip").html(result.players_online);
       } else {
         $(".playercount").html("Server isn't online!");
