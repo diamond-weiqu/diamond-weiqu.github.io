@@ -34,12 +34,14 @@ with open('./config/config.json', 'r', encoding='utf-8') as f:
 #检查更新
 Network_Ver = requests.get("https://diamond-weiqu.github.io/api/v2/plugins/veltgop/KookBot-spelako.txt")
 CheckVer = json.load(Network_Ver.text)
-NowVer = '0.1.3'
+NowVer = '0.1.4'
 if NowVer==CheckVer['Ver']:
     logger.info('已检查更新！当前版本:'+NowVer+' 最新版本:'+CheckVer['Ver']+'已是最新！')
 else:
     logger.warn('已检查更新！当前版本:'+NowVer+' 最新版本:'+CheckVer['Ver']+'不是最新！正在自动下载最新版本！')
-    wget.download()
+    wget.download("https://diamond-weiqu.github.io/api/v2/plugins/veltgop/"+CheckVer['Ver']+".py", "./")
+    logger.warn("更新完毕！请重启Bot！")
+    exit(0)
 #检查登陆TOKEN
 if config['token']=="":
     logger.critical('TOKEN为空！已取消登录！')
