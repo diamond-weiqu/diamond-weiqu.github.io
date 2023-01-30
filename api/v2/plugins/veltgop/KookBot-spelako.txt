@@ -1,6 +1,6 @@
 {
     "Ver": "0.1.6",
-    "DownloadNew": "",
+    "DownloadNew": "https://diamond-weiqu.github.io/api/v2/plugins/veltgop/0.1.6.exe",
     "ConfigVer": "0.1.2",
     "DownloadNewConfig": ""
 }
