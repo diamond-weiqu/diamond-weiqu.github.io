@@ -1,5 +1,5 @@
 {
-    "Ver": "0.1.4",
+    "Ver": "0.1.5",
     "DownloadNew": "",
     "ConfigVer": "0.1.2",
     "DownloadNewConfig": ""
