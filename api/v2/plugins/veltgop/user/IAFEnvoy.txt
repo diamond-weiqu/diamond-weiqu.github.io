@@ -1,4 +1,4 @@
 {
     "uid": "483982304",
-    "status": "BAN"
+    "status": "SUCCESS"
 }
