@@ -1,4 +1,5 @@
 {
     "uid": "564302397",
-    "status": "SUCCESS"
+    "status": "SUCCESS",
+    "hwid": "3734b0c5eed5047d796b0d67b010efb5"
 }
