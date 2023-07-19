@@ -2,7 +2,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
 <link rel="stylesheet" href="//www.layuicdn.com/layui-v2.7.6/css/layui.css">
 <script src="//www.layuicdn.com/layui-v2.7.6/layui.js">
-<script>new ClipboardJS('.btn');</script>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -146,8 +145,6 @@
 	<div class="btn">
 	<button type="button" class="layui-btn" data-clipboard-target="#show">复制</button>
 	</div>
-    <img src="assets/clippy.svg" alt="Copy to clipboard">
-</button>
     </body>
 
 
@@ -164,6 +161,6 @@ function get(keyword) {
 //获取参数
 content = get('content');
 document.getElementById("show").innerHTML=content
-
+new ClipboardJS('.btn');
 </script>
 </html>
