@@ -161,5 +161,15 @@ function get(keyword) {
 content = get('content');
 document.getElementById("show").innerHTML=content
 new ClipboardJS('.btn');
+clipboard.on('success', function(e) {
+    console.log(e)
+    alert('复制成功');
+});
+
+clipboard.on('error', function(e) {
+    console.log(e)
+    alert('复制失败');
+});
+
 </script>
 </html>
