@@ -160,7 +160,7 @@ function get(keyword) {
 //获取参数
 content = get('content');
 document.getElementById("show").innerHTML=content
-new ClipboardJS('.btn');
+var clipboard = new ClipboardJS('.btn');
 clipboard.on('success', function(e) {
     console.log(e)
     alert('复制成功');
