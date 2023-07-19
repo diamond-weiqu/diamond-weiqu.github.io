@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+<link rel="stylesheet" href="//www.layuicdn.com/layui-v2.7.6/css/layui.css">
+<script src="//www.layuicdn.com/layui-v2.7.6/layui.js">
 <script>new ClipboardJS('.btn');</script>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
     <head>
@@ -141,7 +143,9 @@
     <body id="error-page">
         <h3>详情信息</h3>
         <h4><div id='show'></div></h4>
-	<button class="btn" data-clipboard-target="#show">
+	<div class="btn">
+	<button type="button" class="layui-btn" data-clipboard-target="#show">复制</button>
+	</div>
     <img src="assets/clippy.svg" alt="Copy to clipboard">
 </button>
     </body>
