@@ -6,11 +6,11 @@ var content
 function get(keyword) {
 	var reg = new RegExp("(^|&)"+keyword+"=([^&]*)(&|$)", "i");
 	var r = window.location.search.substr(1).match(reg);
-	if (r != null) return unescape(r[2]); return null;   //注意此处参数是中文，解码使用的方法是unescape ，那么在传值的时候如果是中文，需要使用escape('曲浩')方法来编码。
+	if (r != null) return decodeURI(r[2]); return null;   //注意此处参数是中文，解码使用的方法是unescape ，那么在传值的时候如果是中文，需要使用escape('曲浩')方法来编码。
 }
 //获取参数
 content = get('content');
-document.getElementById("show").innerHTML=escape(content)
+document.getElementById("show").innerHTML=content
 /**
  * 复制内容到粘贴板
  * content : 需要复制的内容
