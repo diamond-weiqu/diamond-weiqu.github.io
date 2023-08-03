@@ -1,5 +1,5 @@
 {
     "uid": "1351643027",
     "status": "SUCCESS",
-    "hwid": "d531dfaf7b2b12d6fc97e404f5a3cb0e"
+    "hwid": "a630a6a32e33ca2c431328bb8462573e"
 }
