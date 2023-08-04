@@ -1,5 +1,6 @@
 {
     "uid": "564302397",
     "status": "SUCCESS",
+    "package": 2,
     "hwid": "3734b0c5eed5047d796b0d67b010efb5"
 }
