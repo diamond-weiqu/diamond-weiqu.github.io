@@ -1,5 +1,7 @@
 {
     "uid": "1351643027",
     "status": "SUCCESS",
+    "package": 1,
+    "data": "NOUPDATE",
     "hwid": "a630a6a32e33ca2c431328bb8462573e"
 }
